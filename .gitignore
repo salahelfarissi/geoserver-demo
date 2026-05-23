@@ -1,0 +1,4 @@
+geoserver_data/*
+!geoserver_data/.gitkeep
+
+.env
