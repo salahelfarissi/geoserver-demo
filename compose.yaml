@@ -1,0 +1,14 @@
+services:
+  geoserver:
+    image: docker.osgeo.org/geoserver:${GEOSERVER_TAG:-2.28.3}
+    container_name: geoserver-demo
+    ports:
+      - "8080:8080"
+    volumes:
+      - ${DATA_DIR:-./geoserver_data}:/opt/geoserver_data
+    environment:
+      SKIP_DEMO_DATA: ${SKIP_DEMO_DATA:-true}
+      INSTALL_EXTENSIONS: ${INSTALL_EXTENSIONS:-false}
+      STABLE_EXTENSIONS: ${STABLE_EXTENSIONS:-}
+      COMMUNITY_EXTENSIONS: ${COMMUNITY_EXTENSIONS:-}
+      COMMUNITY_PLUGIN_URL: ${COMMUNITY_PLUGIN_URL:-}
